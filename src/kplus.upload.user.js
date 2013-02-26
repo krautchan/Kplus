@@ -3,7 +3,8 @@
 // @namespace     https://github.com/krautchan/Kplus
 // @description   Makes the post form on KC support more files.
 // @include       /^https?://([^.]+\.)?krautchan\.net/.*$/
-// @version       0.1
+// @grant         none
+// @version       0.1.1
 // ==/UserScript==
 //
 // USAGE:
@@ -25,7 +26,7 @@
 /* </boilerplate> */
 
   // are we on a board page?
-  if (!($ && $$ && $('postform'))) {
+  if (!(window.$ && window.$$ && $('postform'))) {
     return;
   }
 
@@ -143,7 +144,7 @@
     }
 
     function onDone(ev) {
-      onProgress(ev);
+      onProgress({loaded: 1, total: 1});
     }
 
     // ad hoc answer parsing
@@ -184,9 +185,10 @@
           uploadNext();
         } else {
           // we're done!
+          // TM-finalURL is used because Chrome won't update the documentURI after a 302
           window.location.assign(window.replyThread ?
             window.location.href.replace(/#.*$/,'') :
-            html.documentURI);
+            (req.getResponseHeader('TM-finalURL') || html.documentURI));
         }
       } else {
         logError([req.status, req.statusText].join(' '));
