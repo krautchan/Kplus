@@ -20,7 +20,7 @@
   var s = document.createElement('script');
   s.src = 'data:application/javascript,' + encodeURIComponent('('+f.toString()+')()');
   document.body.appendChild(s);
-  document.body.removeChild(s);
+  setTimeout(document.body.removeChild.bind(document.body, s), 0);
 })(function setUpForm() {
 /* </boilerplate> */
 
