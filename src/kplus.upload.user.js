@@ -5,6 +5,15 @@
 // @include       /^https?://([^.]+\.)?krautchan\.net/.*$/
 // @version       0.1
 // ==/UserScript==
+//
+// USAGE:
+// Use and distribute this script wisely and sparingly. It's easy to break and
+// I'd rather work with DesuChan than against it. If you want to dump a comic -
+// go ahead. If you want to dump LS-Models or gore - please go die in a fire.
+//
+// This script changes the default file input into a multifile input supporting
+// an arbitrary number of files. Files are split over posts if there are more
+// than the board limit.
 
 /* <boilerplate> */
 (function inject(f) {
