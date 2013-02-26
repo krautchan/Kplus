@@ -15,4 +15,4 @@ To be added once it makes sense:
 Not supported:
 * chans that aren't KC.
 
-[1] As soon as Opera at least [supports HTML documents in XHR2][http://dev.opera.com/articles/view/xhr2/#xhrresponsetype].
+[1] As soon as Opera at least [supports HTML documents in XHR2](http://dev.opera.com/articles/view/xhr2/#xhrresponsetype).
